@@ -6,6 +6,7 @@ import { auth } from '../utils/firebase';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { NETFLIX_BG } from '../utils/constants';
 
 const Login = () => {
     
@@ -71,7 +72,7 @@ const Login = () => {
     <div>
         <Header/>
         <div className="absolute">
-           <img src = "https://assets.nflxext.com/ffe/siteui/vlv3/cb72daa5-bd8d-408b-b949-1eaef000c377/web/IN-en-20250825-TRIFECTA-perspective_a3209894-0b01-4ddb-b57e-f32165e20a3f_large.jpg"
+           <img src = {NETFLIX_BG}
             alt="logo-bg"/>
         </div>
         <form  onSubmit={(e)=> e.preventDefault() } className="absolute w-3/12 right-0 left-0 p-12 my-36 mx-auto bg-black text-white opacity-85 rounded-lg">
