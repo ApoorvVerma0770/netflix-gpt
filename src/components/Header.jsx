@@ -16,6 +16,9 @@ const Header = () => {
   const navigate = useNavigate()
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch)
 
+  const currentLang = useSelector((store) => store.config.lang)
+  const value = currentLang ?? "en";
+
    const handleSignOut = () => {
     signOut(auth).then(() => {
     }).catch((error) => {
@@ -59,7 +62,9 @@ dispatch(toggleGptSearchView())
              alt="logo"
            />
           {user && <div className="flex p-2">
-            {showGptSearch && <select className="  mb-8 p-2  bg-white" onChange={handleLanguageChange}>
+            {showGptSearch && <select className="  mb-8 p-2  bg-white"
+                                       onChange={handleLanguageChange}
+                                       value={value}                              >
               {SUPPORTED_LANG.map((lang) => <option value={lang.identifier} key={lang.identifier} >
                 {lang.name}
                 </option>)}
